@@ -6,162 +6,33 @@
         content="width=device-width, 
         initial-scale=1.0, 
         user-scalable=no" />
+    <link rel="stylesheet" href="index.css">
   <title>Drag/Drop/Bounce</title>
-  <style>
-    #container {
-      width: 100%;
-      height: 800px;
-      background-color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border-radius: 7px;
-      touch-action: none;
-    }
-    #calendar {
-      width: 100%;
-      height: 400px;
-      background-color: rgb(56, 17, 231);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border-radius: 7px;
-      touch-action: none;
-    }
-    #stickers {
-      width: 100%;
-      height: 400px;
-      background-color: rgb(216, 210, 203);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border-radius: 7px;
-      touch-action: none;
-    }
-    .item {
-      width: 100px;
-      height: 100px;
-      touch-action: none;
-      user-select: none;
-    }
-    .item:active {
-      background-color: rgba(168, 218, 220, 1.00);
-    }
-    .item:hover {
-      cursor: pointer;
-      border-width: 20px;
-    }
-
-   .item img {
-      pointer-events: none;
-    }
-  </style>
 </head>
 
 <body>
-
-  <div id="outerContainer">
-    <div id="container">
-      <div class="item">
-        <img src='images/potatoes.png'/>
-      </div>
-      <div class="item">
-          <img src='images/potatoes.png'/>
-      </div>
-     <div id="calendar">
-      <div>Monday
-      <textarea></textarea>
-      </div>
-      <div>Tuesday
-      <textarea></textarea>
-      </div>
-     </div>
+    <div id="outerContainer">
+        <button class="lefty paddle" id="left-button"></button>
+        <div class="scrollcontainer">
+        </div>
+        <button class="righty paddle" id="right-button"></button>
+      <div id="container">
+          <div id="stickerContainer">
+          </div>
+        <div id="calendar">
+          <div class="weekDay Monday">
+            <div class="weekDayName">Monday</div>
+            <div class="weekDayDate"></div>
+          <textarea></textarea>
+          </div>
+          <div class="weekDay Tuesday">
+            <div>Tuesday</div>>
+          <textarea></textarea>
+          </div>
+        </div>
+        </div>
     </div>
-  </div>
-
-  <script>
-    let dragItem;
-    var dragItems = document.querySelectorAll(".item");
-    var container = document.querySelector("#container");
-
-    var active = false;
-    var currentX;
-    var currentY;
-    var initialX;
-    var initialY;
-    var xOffset = 0;
-    var yOffset = 0;
-
-    container.addEventListener("touchstart", dragStart, false);
-    container.addEventListener("touchend", dragEnd, false);
-    container.addEventListener("touchmove", drag, false);
-
-    container.addEventListener("mousedown", dragStart, false);
-    container.addEventListener("mouseup", dragEnd, false);
-    container.addEventListener("mousemove", drag, false);
-
-    function dragStart(e) {
-      for(var value of dragItems.values()) { 
-      console.log("Start Before: "+"currentX="+currentX+" xOffset="+xOffset+" initialX="+initialX+" e.clientX="+e.clientX);
-      if (e.target === value) {
-      if (e.type === "touchstart") {
-        initialX = e.touches[0].clientX;
-        initialY = e.touches[0].clientY;
-      } else {
-        initialX = e.clientX;
-        initialY = e.clientY;
-      }
-      currentX = initialX;
-      currentY = initialY;
-      console.log("Start: "+"currentX="+currentX+" xOffset="+xOffset+" initialX="+initialX+" e.clientX="+e.clientX );
-      
-      console.log("e.clientx = "+e.clientX);
-     
-        active = true;
-        dragItem = e.target;
-        }
-        }
-      }
-
-    function dragEnd(e) {
-      if (active){
-      initialX = currentX;
-      initialY = currentY;
-      console.log("End: "+"currentX="+currentX+" xOffset="+xOffset);
-      console.log("e.clientx = "+e.clientX);
-      active = false;
-    }
-    }
-
-    function drag(e) {
-      if (active) {
-      
-        e.preventDefault();
-      
-        if (e.type === "touchmove") {
-          currentX = e.touches[0].clientX - initialX;
-          currentY = e.touches[0].clientY - initialY;
-        } else {
-          currentX = e.clientX - initialX;
-          currentY = e.clientY - initialY;
-        }
-
-        xOffset = currentX;
-        yOffset = currentY;
-
-        setTranslate(currentX, currentY, dragItem);
-      }
-    }
-
-    function setTranslate(xPos, yPos, el) {
-      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-    }
-  </script>
+    <input type='button' value='Save/Print' onclick="printDiv('container');"/>
 </body>
-
+<script src="index.js"></script>
 </html>

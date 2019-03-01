@@ -1,0 +1,86 @@
+    #container {
+      width: 100%;
+      height: 800px;
+      background-color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 7px;
+      touch-action: none;
+    }
+    #calendar {
+      width: 100%;
+      height: 400px;
+      background-color: rgb(56, 17, 231);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 7px;
+      touch-action: none;
+    }
+    #stickers {
+      width: 100%;
+      height: 400px;
+      background-color: rgb(216, 210, 203);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 7px;
+      touch-action: none;
+    }
+    .item {
+      width: 100px;
+      height: 100px;
+      touch-action: none;
+      user-select: none;
+    }
+    .item:active {
+      background-color: rgba(168, 218, 220, 1.00);
+    }
+    .item:hover {
+      cursor: pointer;
+      border-width: 20px;
+    }
+
+   .item img {
+      pointer-events: none;
+    }
+
+    .outer {
+  
+        overflow-x: hidden;
+            overflow-y: hidden;
+      
+      }
+      
+      .scrollcontainer {
+        height: 100px;
+        display: flex;
+        transition: transform .4s ease-in;
+      }
+      
+      .inner {
+        flex: 0 0 25%;
+        height: 100px;
+          margin:10px;
+      }
+      .paddle {
+          position: absolute;
+          top: 50px;
+          bottom: 0;
+          width: 30px;
+          height:20px;
+      }
+      .lefty {
+          left: 0;
+        z-index:1;
+      }
+      .righty{
+          right: 0;
+         z-index:1;
+      }
