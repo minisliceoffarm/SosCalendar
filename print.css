@@ -1,0 +1,189 @@
+#outerContainer {
+  width: 600px;
+  background-color: white;
+  overflow: hidden;
+  border: solid;
+}
+
+#container {
+  width: 100%;
+  height: 800px;
+  background-color: rgb(240, 236, 236);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 7px;
+  touch-action: none;
+}
+#calendar {
+  width: 480px;
+  height: 560px;
+  background-color: rgb(219, 210, 210);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 7px;
+  touch-action: none;
+  border-color: white;
+  border-style: solid;
+  border-width: 6px;
+  padding-right: 80px;
+}
+#stickerContainer {
+  display: flex;
+  width: 480px;
+  min-height: 100px;
+  background-color: white;
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+#calendar .weeklyTheme {
+  width: 200px;
+  text-align: center;
+}
+textarea {
+  background-color: rgb(219, 210, 210);
+  border-style: none;
+  resize: none;
+}
+#calendar .weeklyTheme textarea{
+  width: 200px;
+  text-align: center;
+  resize: none;
+}
+.item {
+  width: 100px;
+  height: 100px;
+  touch-action: none;
+  user-select: none;
+}
+.item:active {
+  background-color: rgba(168, 218, 220, 1.00);
+}
+.item:hover {
+  cursor: pointer;
+  border-width: 20px;
+}
+
+.item img {
+  pointer-events: none;
+}
+
+.Monday .weekDayName {
+  background-image: linear-gradient(rgb(182, 109, 250), rgb(107, 13, 196));
+  color: white;
+  font-weight: bold;
+  font-family: cursive;
+  text-shadow: 1px 1px 8px #494848;
+  margin-bottom: -4px;
+}
+
+.Tuesday .weekDayName {
+  background-image: linear-gradient(rgb(209, 171, 245), blueviolet);
+  color: white;
+  font-weight: bold;
+  font-family: cursive;
+  text-shadow: 1px 1px 8px #494848;
+  margin-bottom: -4px;
+}
+
+.Wednesday .weekDayName {
+  background-image: linear-gradient(rgb(210, 153, 248), rgb(145, 60, 202));
+  color: white;
+  font-weight: bold;
+  font-family: cursive;
+  text-shadow: 1px 1px 8px #494848;
+  margin-bottom: -4px;
+}
+
+.Thursday .weekDayName {
+  background-image: linear-gradient(rgb(242, 150, 250), rgb(200, 77, 211));
+  color: white;
+  font-weight: bold;
+  font-family: cursive;
+  text-shadow: 1px 1px 8px #494848;
+  margin-bottom: -4px;
+}
+
+.Friday .weekDayName {
+  background-image: linear-gradient(rgb(237, 91, 250), rgb(180, 13, 196));
+  color: white;
+  font-weight: bold;
+  font-family: cursive;
+  text-shadow: 1px 1px 8px #494848;
+  margin-bottom: -4px;
+}
+
+.weekDay-Underline {
+  margin-left: 76px;
+  margin-bottom: 10px;
+  border-color: blueviolet;
+  border-style: solid;
+  border-width: 1px;
+  background-color: blueviolet;
+  border-radius: 1px;
+}
+
+.weekDayText {
+  display: flex;
+}
+
+.weekDayName {
+  width: 84px;
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+  background-color: aqua;
+}
+
+.weekDayDate {
+  padding: 8px;
+}
+
+#calendar textarea {
+  resize: none;
+  width: 360px;
+}
+
+#calendar hr {
+  margin-top: 0px;
+}
+
+.outer {
+
+    overflow-x: hidden;
+        overflow-y: hidden;
+  
+  }
+  
+  .scrollcontainer {
+    width: 400px;
+    height: 100px;
+    display: flex;
+    transition: transform .4s ease-in;
+  }
+  
+  .inner {
+    flex: 0 0 25%;
+    height: 100px;
+      margin:10px;
+  }
+  .paddle {
+      position: absolute;
+      top: 50px;
+      bottom: 0;
+      width: 30px;
+      height:20px;
+  }
+  .lefty {
+      left: 0;
+    z-index:1;
+  }
+  .righty{
+      right: 0;
+     z-index:1;
+  }
