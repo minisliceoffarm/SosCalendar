@@ -97,9 +97,14 @@
 
     function printDiv(divName) {
     var printContents = document.getElementById(divName).innerHTML;
-    var pageContents = "<!DOCTYPE html><html><head><link rel=\"stylesheet\" href=\"index.css\"><title>Drag/Drop/Bounce</title></head><body>"+printContents+"</body></html>"
+    var pageContents = "<!DOCTYPE html><html><head><link rel=\"stylesheet\" href=\"print.css\"><title>MiniSliceOfFarm Weekly Menu</title></head><body>"+printContents+"</body></html>";
     var calendarWindow = window.open();
-    calendarWindow.document.write(pageContents); 
+    calendarWindow.document.write(pageContents);
+    calendarWindow.document.getElementById('mondayText').value = document.getElementById('mondayText').value;
+    calendarWindow.document.getElementById('tuesdayText').value = document.getElementById('tuesdayText').value;
+    calendarWindow.document.getElementById('wednesdayText').value = document.getElementById('wednesdayText').value;
+    calendarWindow.document.getElementById('thursdayText').value = document.getElementById('thursdayText').value;
+    calendarWindow.document.getElementById('fridayText').value = document.getElementById('fridayText').value;
     setTimeout(function(){
         calendarWindow.print();
         calendarWindow.close();
@@ -119,6 +124,82 @@
        }
    }
 
+    function getWeekdays() {
+      var today = new Date();
+      var monthNum = today.getMonth();
+      var monthArr = ["January", "February","March", "April", "May", "June", "July", "August", "September", "October", "November","December"];
+      var monthText = monthArr[monthNum];
+      var mondayDate = new Date();
+      switch(today.getDay()){
+        case 0:
+        mondayDate.setDate(mondayDate.getDate() + 1);
+        break;
+        case 1:
+        mondayDate.setDate(mondayDate.getDate());
+        break;
+        case 2:
+        mondayDate.setDate(mondayDate.getDate() + 6);
+        break;
+        case 3:
+        mondayDate.setDate(mondayDate.getDate() + 5);
+        break;
+        case 4:
+        mondayDate.setDate(mondayDate.getDate() + 4);
+        break;
+        case 5:
+        mondayDate.setDate(mondayDate.getDate() + 3);
+        break;
+        case 6:
+        mondayDate.setDate(mondayDate.getDate() + 2);
+        break;
+      }
+      var tuesdayDate = new Date();
+      tuesdayDate.setDate(mondayDate.getDate() + 1);
+      var wednesdayDate = new Date();
+      wednesdayDate.setDate(mondayDate.getDate() +2);
+      var thursdayDate = new Date();
+      thursdayDate.setDate(mondayDate.getDate() +3);
+      var fridayDate = new Date();
+      fridayDate.setDate(mondayDate.getDate() +4);
+      var weekDays = {
+        monday: {
+          dayText: 'Monday',
+          dayMonthText: monthArr[mondayDate.getMonth()],
+          dayNumber: mondayDate.getDate()
+        },
+        tuesday: {
+          dayText: 'Tuesday',
+          dayMonthText: monthArr[tuesdayDate.getMonth()],
+          dayNumber: tuesdayDate.getDate()
+        },
+        wednesday: {
+          dayText: 'Wednesday',
+          dayMonthText: monthArr[wednesdayDate.getMonth()],
+          dayNumber: wednesdayDate.getDate()
+        },
+        thursday: {
+          dayText: 'Thursday',
+          dayMonthText: monthArr[thursdayDate.getMonth()],
+          dayNumber: thursdayDate.getDate()
+        },
+        friday: {
+          dayText: 'Friday',
+          dayMonthText: monthArr[fridayDate.getMonth()],
+          dayNumber: fridayDate.getDate()
+        }
+      }
+      return weekDays;
+    }
+
+    function setWeekdayText() {
+      var weekdays = getWeekdays();
+      document.querySelector(".Monday .weekDayDate").innerText = weekdays.monday.dayMonthText + " " + weekdays.monday.dayNumber;
+      document.querySelector(".Tuesday .weekDayDate").innerText = weekdays.tuesday.dayMonthText + " " + weekdays.tuesday.dayNumber;
+      document.querySelector(".Wednesday .weekDayDate").innerText = weekdays.wednesday.dayMonthText + " " + weekdays.wednesday.dayNumber;
+      document.querySelector(".Thursday .weekDayDate").innerText = weekdays.thursday.dayMonthText + " " + weekdays.thursday.dayNumber;
+      document.querySelector(".Friday .weekDayDate").innerText = weekdays.friday.dayMonthText + " " + weekdays.friday.dayNumber;
+
+    }
 const scrollcontainer = document.querySelector(".scrollcontainer");
 const lefty = document.querySelector(".lefty");
 let translate = 0;
@@ -135,3 +216,4 @@ righty.addEventListener("click", function() {
 });
 
 loadPictures();
+setWeekdayText();

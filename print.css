@@ -5,6 +5,11 @@
       border: solid;
     }
 
+    textarea {
+      background-color: rgb(219, 210, 210);
+      border-style: none;
+    }
+
     #container {
       width: 100%;
       height: 800px;
@@ -59,14 +64,6 @@
 
     .Monday .weekDayName {
       background-color: blueviolet;
-    }
-
-    .Tuesday .weekDayName {
-      background-image: linear-gradient(rgb(209, 171, 245), blueviolet);
-      color: white;
-      font-weight: bold;
-      font-family: cursive;
-      text-shadow: 1px 1px 8px #494848;
     }
 
     .Tuesday {
