@@ -1,4 +1,4 @@
-    var pictureCount = 2;
+    var pictureCount = 3;
     let dragItem;
     let dragItems;
     let selectedSticker= { active: false };
@@ -97,7 +97,7 @@
 
     function printDiv(divName) {
     var printContents = document.getElementById(divName).innerHTML;
-    var pageContents = "<!DOCTYPE html><html><head><link rel=\"stylesheet\" href=\"print.css\"><title>MiniSliceOfFarm Weekly Menu</title></head><body>"+printContents+"</body></html>";
+    var pageContents = "<!DOCTYPE html><html><head><link rel=\"stylesheet\" href=\"print.css\"><title>MiniSliceOfFarm Weekly Menu</title></head><body>"+printContents+"<div id='stickerContainerCover></div></body></html>";
     var calendarWindow = window.open();
     calendarWindow.document.write(pageContents);
     calendarWindow.document.getElementById('weeklyThemeText').value = document.getElementById('weeklyThemeText').value;
@@ -109,15 +109,22 @@
     setTimeout(function(){
         calendarWindow.print();
         calendarWindow.close();
-    }, 500);     
+    }, 500);   
    }
 
    function addSticker(stickerPath){
        var stickerContainer = document.querySelector("#stickerContainer");
        if( stickerContainer.childNodes.length < 9 ){
-        stickerContainer.innerHTML+="<div class='item'><img src='"+stickerPath+"'/></div>";
+        var otherId = Date.now();
+        stickerContainer.innerHTML+="<div class='item' otherId='"+otherId+"'><img src='"+stickerPath+"'/><button class='deleteButton' onclick=\"deleteSticker('"+otherId+"')\">X</button></div>";
         setupStickers();
        }
+   }
+
+   function deleteSticker(otherId){
+    var stickerContainer = document.querySelector("#stickerContainer");
+    var stickerToDelete = document.querySelector("[otherId='"+otherId+"']");
+    stickerContainer.removeChild(stickerToDelete);
    }
 
    function loadPictures(){
@@ -216,6 +223,41 @@ const righty = document.querySelector(".righty");
 righty.addEventListener("click", function() {
   	translate -= 200;
   	scrollcontainer.style.transform = "translateX(" + translate + "px" + ")";
+});
+
+function compress(e) {
+  const fileName = e.target.files[0].name;
+  const reader = new FileReader();
+  reader.readAsDataURL(e.target.files[0]);
+  reader.onload = event => {
+      const img = new Image();
+      img.src = event.target.result;
+      img.onload = () => {
+              const width = 100;
+              const scaleFactor = width/img.width
+              const elem = document.createElement('canvas');
+              elem.width = width;
+              elem.height = img.height*scaleFactor;
+              const ctx = elem.getContext('2d');
+              // img.width and img.height will contain the original dimensions
+              ctx.drawImage(img, 0, 0, width, img.height * scaleFactor);
+              console.log(fileName);
+              ctx.canvas.toBlob((blob) => {
+                  const file = new File([blob], fileName, {
+                      type: 'image/jpeg',
+                      lastModified: Date.now()
+                  });
+                  var urlCreator = window.URL || window.webkitURL;
+                  var imageUrl = urlCreator.createObjectURL( blob );
+                  addSticker(imageUrl);
+              }, 'image/jpeg', 1);
+          },
+          reader.onerror = error => console.log(error);
+  };
+};
+
+document.getElementById("file").addEventListener("change", function (event) {
+	compress(event);
 });
 
 loadPictures();

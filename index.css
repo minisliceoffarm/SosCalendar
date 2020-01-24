@@ -47,11 +47,11 @@
       resize: none;
     }
     #calendar .weeklyTheme {
-      width: 3600px;
+      width: 360px;
       text-align: center;
     }
     #weeklyThemeText {
-      font-size: 30px;
+      font-size: 26px;
       font-weight: bold;
       text-align: center;
     }
@@ -60,7 +60,17 @@
       text-align: center;
       resize: none;
     }
+    #saveButton {
+      background-image: linear-gradient(rgb(237, 91, 250), rgb(180, 13, 196));
+      color: white;
+      font-weight: bold;
+      font-family: cursive;
+      text-shadow: 1px 1px 8px #494848;
+      margin-top:8px;
+      font-size: 20px;
+    }
     .item {
+      position: relative;
       width: 100px;
       height: 100px;
       touch-action: none;
@@ -106,7 +116,7 @@
     }
 
     .Thursday .weekDayName {
-      background-image: linear-gradient(rgb(242, 150, 250), rgb(200, 77, 211));
+      background-image: linear-gradient(rgb(145, 60, 202), rgb(200, 77, 211));
       color: white;
       font-weight: bold;
       font-family: cursive;
@@ -153,6 +163,13 @@
       resize: none;
       width: 360px;
       overflow: hidden;
+    }
+
+    .deleteButton {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      font-size: 12px; 
     }
 
     #calendar hr {

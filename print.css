@@ -44,12 +44,22 @@
   border-width: 6px;
   resize: none;
 }
+#stickerContainerCover {
+  position: relative;
+  display: block;
+  width: 492px;
+  height: 216px;
+  top: -800px;
+  left: 0px;
+  background-color: white; /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
 #calendar .weeklyTheme {
   width: 360px;
   text-align: center;
 }
 #weeklyThemeText {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   text-align: center;
 }
@@ -62,6 +72,9 @@ textarea {
   width: 360px;
   text-align: center;
   resize: none;
+}
+.deleteButton {
+ display:none; 
 }
 .item {
   width: 100px;
