@@ -106,17 +106,18 @@
     calendarWindow.document.getElementById('wednesdayText').value = document.getElementById('wednesdayText').value;
     calendarWindow.document.getElementById('thursdayText').value = document.getElementById('thursdayText').value;
     calendarWindow.document.getElementById('fridayText').value = document.getElementById('fridayText').value;
-    console.log(calendarWindow.document.body);
-    //setTimeout(function(){
-    //    calendarWindow.print();
-    //    calendarWindow.close();
-    //}, 500);     
+    setTimeout(function(){
+        calendarWindow.print();
+        calendarWindow.close();
+    }, 500);     
    }
 
    function addSticker(stickerPath){
        var stickerContainer = document.querySelector("#stickerContainer");
-       stickerContainer.innerHTML+="<div class='item'><img src='"+stickerPath+"'/></div>";
-       setupStickers();
+       if( stickerContainer.childNodes.length < 9 ){
+        stickerContainer.innerHTML+="<div class='item'><img src='"+stickerPath+"'/></div>";
+        setupStickers();
+       }
    }
 
    function loadPictures(){

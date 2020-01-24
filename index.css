@@ -31,22 +31,32 @@
       border-color: white;
       border-style: solid;
       border-width: 6px;
-      padding-right: 80px;
     }
     #stickerContainer {
       display: flex;
+      flex-wrap: wrap;
       width: 480px;
-      min-height: 100px;
+      height: 200px;
+      max-height: 200px;
       background-color: white;
       border-radius: 7px;
       margin-bottom: 10px;
+      border-color: black;
+      border-style: solid;
+      border-width: 6px;
+      resize: none;
     }
     #calendar .weeklyTheme {
-      width: 200px;
+      width: 3600px;
+      text-align: center;
+    }
+    #weeklyThemeText {
+      font-size: 30px;
+      font-weight: bold;
       text-align: center;
     }
     #calendar .weeklyTheme textarea{
-      width: 200px;
+      width: 360px;
       text-align: center;
       resize: none;
     }
@@ -57,7 +67,7 @@
       user-select: none;
     }
     .item:active {
-      background-color: rgba(168, 218, 220, 1.00);
+      background-color: rgba(168, 218, 220, .20);
     }
     .item:hover {
       cursor: pointer;
@@ -140,8 +150,9 @@
     }
 
     #calendar textarea {
-      resize: vertical;
+      resize: none;
       width: 360px;
+      overflow: hidden;
     }
 
     #calendar hr {
@@ -169,16 +180,16 @@
       }
       .paddle {
           position: absolute;
-          top: 50px;
+          top: 80px;
           bottom: 0;
           width: 30px;
           height:20px;
       }
       .lefty {
-          left: 0;
+          left: 20;
         z-index:1;
       }
       .righty{
-          right: 0;
+          left: 580px;
          z-index:1;
       }
