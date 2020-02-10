@@ -1,4 +1,4 @@
-    var pictureCount = 3;
+    var pictureCount = 1;
     let dragItem;
     let dragItems;
     let selectedSticker= { active: false };
