@@ -11,18 +11,19 @@
 </head>
 
 <body>
+  <div id="leftColumn">
     <div id="outerContainer">
         <button class="lefty paddle" id="left-button">&lt;</button>
         <div class="scrollcontainer">
         </div>
         <button class="righty paddle" id="right-button">&gt; </button>
-        <div>Click on stickers above to add them to your pallet. You can drag stickers from the pallet to anywhere on your menu!</div>
+        <div>Click on stickers above to add them to your pallet or upload your own by clicking <label for='file'class="uploadLabel">here.</label><input id="file" type="file" accept="image/*" style="display:none">You can drag stickers from the pallet to anywhere on your menu!</div>
       <div id="container">
           <div id="stickerContainer">
           </div>
         <div id="calendar">
           <div class="weeklyTheme">
-            <textarea id="weeklyThemeText"></textarea>
+            <textarea id="weeklyThemeText" placeholder="Menu Theme"></textarea>
           </div>
           <div class="Monday">
             <div class = "weekDayText">
@@ -68,9 +69,13 @@
         <div id="stickerContainerCover"></div>
         </div>
         </div>
-    </div>
-    <input id="file" type="file" accept="image/*">
     <button id='saveButton' onclick="printDiv('container');">Save/Print</button>
+  </div>
+  </div>
+    <div id="rightColumn">
+      <h2>Need Inspiration?</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/playlist?list=PLxD0h0887uflNpQwXmXjtxDLL0gKUmT-p" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 </body>
 <script src="index.js"></script>
 </html>

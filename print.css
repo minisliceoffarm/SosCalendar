@@ -28,8 +28,10 @@
   overflow: hidden;
   border-radius: 7px;
   touch-action: none;
-  border-color: white;
+  border-color: rgb(237, 91, 250);
   border-style: solid;
+  border-width: 6px;
+  box-shadow:3px 3px black;
 }
 #stickerContainer {
   display: flex;
