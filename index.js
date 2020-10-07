@@ -255,7 +255,9 @@ function compress(e) {
           reader.onerror = error => console.log(error);
   };
 };
-
+function setTheme(themeName) {
+  document.documentElement.className = themeName;
+}
 document.getElementById("file").addEventListener("change", function (event) {
 	compress(event);
 });

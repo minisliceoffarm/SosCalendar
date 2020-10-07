@@ -14,6 +14,42 @@
       float: left;
     }
 
+    .theme-spring {
+      --monday-background-image: linear-gradient(rgb(182, 109, 250), rgb(107, 13, 196));
+      --tuesday-background-image: linear-gradient(rgb(209, 171, 245), blueviolet);
+      --wednesday-background-image:  linear-gradient(rgb(210, 153, 248), rgb(145, 60, 202));
+      --thursday-background-image: linear-gradient(rgb(145, 60, 202), rgb(200, 77, 211));
+      --friday-background-image: linear-gradient(rgb(237, 91, 250), rgb(180, 13, 196));
+      --save-button-background-image: linear-gradient(rgb(182, 109, 250), rgb(107, 13, 196));
+      --calendar-border-color:  rgb(237, 91, 250);
+    }
+
+    .theme-summer {
+
+    }
+
+    .theme-fall {
+      --monday-background-image: linear-gradient(rgb(250, 165, 109), rgb(196, 86, 13));
+      --tuesday-background-image: linear-gradient(rgb(250, 165, 109), rgb(196, 86, 13));
+      --wednesday-background-image:  linear-gradient(rgb(250, 165, 109), rgb(196, 86, 13));
+      --thursday-background-image: linear-gradient(rgb(250, 165, 109), rgb(196, 86, 13));
+      --friday-background-image: linear-gradient(rgb(250, 165, 109), rgb(196, 86, 13));
+      --save-button-background-image: linear-gradient(rgb(250, 165, 109), rgb(196, 86, 13));
+      --calendar-border-color:rgb(250, 165, 109);
+    }
+
+    .theme-winter {
+
+    }
+
+    .themeSelectorSpring {
+      color: rgb(237, 91, 250);
+    }
+
+    .themeSelectorFall {
+      color: rgb(250, 165, 109);
+    }
+
     .uploadLabel {
       color: white;
       background-color: rgb(182, 109, 250);
@@ -47,7 +83,7 @@
       overflow: hidden;
       border-radius: 7px;
       touch-action: none;
-      border-color: rgb(237, 91, 250);
+      border-color: var(--calendar-border-color);
       border-style: solid;
       border-width: 6px;
       box-shadow: 3px 3px black;
@@ -81,7 +117,7 @@
       resize: none;
     }
     #saveButton {
-      background-image: linear-gradient(rgb(237, 91, 250), rgb(180, 13, 196));
+      background-image: var(--save-button-background-image);
       color: white;
       font-weight: bold;
       font-family: cursive;
@@ -109,7 +145,7 @@
     }
 
     .Monday .weekDayName {
-      background-image: linear-gradient(rgb(182, 109, 250), rgb(107, 13, 196));
+      background-image: var(--monday-background-image);
       color: white;
       font-weight: bold;
       font-family: cursive;
@@ -118,7 +154,7 @@
     }
 
     .Tuesday .weekDayName {
-      background-image: linear-gradient(rgb(209, 171, 245), blueviolet);
+      background-image: var(--tuesday-background-image);
       color: white;
       font-weight: bold;
       font-family: cursive;
@@ -127,7 +163,7 @@
     }
 
     .Wednesday .weekDayName {
-      background-image: linear-gradient(rgb(210, 153, 248), rgb(145, 60, 202));
+      background-image: var(--wednesday-background-image);
       color: white;
       font-weight: bold;
       font-family: cursive;
@@ -136,7 +172,7 @@
     }
 
     .Thursday .weekDayName {
-      background-image: linear-gradient(rgb(145, 60, 202), rgb(200, 77, 211));
+      background-image: var(--thursday-background-image);
       color: white;
       font-weight: bold;
       font-family: cursive;
@@ -145,7 +181,7 @@
     }
 
     .Friday .weekDayName {
-      background-image: linear-gradient(rgb(237, 91, 250), rgb(180, 13, 196));
+      background-image: var(--friday-background-image);
       color: white;
       font-weight: bold;
       font-family: cursive;
